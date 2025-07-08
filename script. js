@@ -1,0 +1,22 @@
+const products = [
+  { name: "Hero Hoodie", price: 49 },
+  { name: "Cosmic T-Shirt", price: 29 },
+  { name: "Galaxy Joggers", price: 39 }
+];
+
+const app = document.getElementById("app");
+const cart = [];
+
+function render() {
+  app.innerHTML = `
+    <div class="logo">B<span>M</span></div>
+    <h1>Trendora</h1>
+    <p style="text-align:center; color:gray;">Wear the future. Feel the trend.</p>
+    ${products.map((p, i) => `
+      <div class="product">
+        <h3>${p.name}</h3>
+        <p>$${p.price}</p>
+        <button onclick="addToCart(${i})">Add to Cart</button>
+      </div>
+    `).join("")}
+    <div style="text-align:center; margin-top:30px
